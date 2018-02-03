@@ -22,6 +22,114 @@
             android:onClick="start"
             android:padding="40dp"
             android:text="Go"
-            android:textSize="80sp" />
+            android:textSize="80sp"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/timerTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/holo_blue_light"
+            android:padding="5dp"
+            android:text="30s"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/ptsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@android:color/holo_orange_light"
+            android:padding="10dp"
+            android:text="0/0"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/timerTextView"
+            android:layout_alignBottom="@+id/timerTextView"
+            android:layout_centerHorizontal="true"
+            android:padding="10dp"
+            android:text="31+12"
+            android:textColor="@android:color/background_dark"
+            android:textSize="25sp" />
+
+        <GridLayout
+            android:layout_width="176dp"
+            android:layout_height="410dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/ptsTextView"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="93dp">
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:background="@android:color/holo_purple"
+                android:tag="0"
+                android:text="3"
+                android:textSize="65dp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="0"
+                android:layout_rowWeight="1"
+                android:background="@android:color/holo_red_light"
+                android:tag="0"
+                android:text="4"
+                android:textSize="65sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:background="@android:color/holo_blue_dark"
+                android:tag="0"
+                android:text="5"
+                android:textSize="65sp" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:layout_gravity="fill"
+                android:layout_row="1"
+                android:layout_rowWeight="1"
+                android:background="@android:color/holo_green_dark"
+                android:tag="0"
+                android:text="6"
+                android:textSize="65sp" />
+        </GridLayout>
+
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
