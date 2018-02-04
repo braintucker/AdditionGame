@@ -41,12 +41,21 @@ public class MainActivity extends AppCompatActivity {
 
         locationOfCorrectAnswer = rand.nextInt(4);
 
+        int incorrectAnswer;
+
         for (int i =0; i<4; i++){
 
             if (i == locationOfCorrectAnswer) {
                 answers.add(a + b);
             } else {
-                answers.add(rand.nextInt(41));
+
+                incorrectAnswer = rand.nextInt(41);
+
+                while (incorrectAnswer == a + b){
+                    incorrectAnswer = rand.nextInt(41);
+                }
+
+                answers.add(incorrectAnswer);
             }
         }
 
