@@ -14,19 +14,22 @@ public class MainActivity extends AppCompatActivity {
 
     Button startButton;
     ArrayList<Integer> answers = new ArrayList<Integer>();
+    TextView resultTextView;
     int locationOfCorrectAnswer;
+    int score = 0;
 
 
     public void chooseAnswer(View view) {
 
 
         if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
-
+            score++;
+            resultTextView.setText("Correct!");
             Log.i("correct", "correct answer!");
         }
-
-
-
+        else{
+            resultTextView.setText("Wrong!");
+        }
 
     }
 
@@ -49,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
         Button btn1 = (Button)findViewById(R.id.btn1);
         Button btn2 = (Button)findViewById(R.id.btn2);
         Button btn3 = (Button)findViewById(R.id.btn3);
-
+        resultTextView = (TextView)findViewById(R.id.resultTextView);
         Random rand = new Random();
 
         int a = rand.nextInt(21);
