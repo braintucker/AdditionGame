@@ -18,15 +18,46 @@ public class MainActivity extends AppCompatActivity {
     Button btn1;
     Button btn2;
     Button btn3;
+    Button playAgainBtn;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     TextView resultTextView;
     TextView ptsTextView;
     TextView sumTextView;
     TextView timerTextView;
+
     int locationOfCorrectAnswer;
     int score = 0;
     int numberOfQuestions = 0;
 
+
+
+
+    public void playAgain(View view) {
+
+        score = 0;
+        numberOfQuestions = 0;
+
+        timerTextView.setText("30s");
+        ptsTextView.setText("0/0");
+        resultTextView.setText("");
+        playAgainBtn.setVisibility(View.INVISIBLE);
+
+        generateQuestion();
+
+        new CountDownTimer(3100, 1000) {
+            @Override
+            public void onTick(long l) {
+                timerTextView.setText(String.valueOf(l/1000) +"s");
+            }
+            @Override
+            public void onFinish() {
+                playAgainBtn.setVisibility(View.VISIBLE);
+                timerTextView.setText("0s");
+                resultTextView.setText(("Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions)));
+            }
+        }.start();
+
+    }
 
     public void generateQuestion(){
 
@@ -103,19 +134,11 @@ public class MainActivity extends AppCompatActivity {
         resultTextView = (TextView)findViewById(R.id.resultTextView);
         ptsTextView = (TextView) findViewById(R.id.ptsTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
+        playAgainBtn = (Button)findViewById(R.id.playAgainBtn);
 
-        generateQuestion();
+        //needed a view or an error, any view will do
+        playAgain(findViewById(R.id.playAgainBtn));
 
-        new CountDownTimer(30100, 1000) {
-            @Override
-            public void onTick(long l) {
-                timerTextView.setText(String.valueOf(l/1000) +"s");
-            }
-            @Override
-            public void onFinish() {
-                timerTextView.setText("0s");
-                resultTextView.setText(("Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions)));
-            }
-        }.start();
+
     }
 }
