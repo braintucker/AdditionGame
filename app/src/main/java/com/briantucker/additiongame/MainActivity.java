@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     TextView ptsTextView;
     TextView sumTextView;
     TextView timerTextView;
+    RelativeLayout gameRelLay;
 
     int locationOfCorrectAnswer;
     int score = 0;
@@ -41,6 +43,10 @@ public class MainActivity extends AppCompatActivity {
         ptsTextView.setText("0/0");
         resultTextView.setText("");
         playAgainBtn.setVisibility(View.INVISIBLE);
+        btn0.setVisibility(View.VISIBLE);
+        btn1.setVisibility(View.VISIBLE);
+        btn2.setVisibility(View.VISIBLE);
+        btn3.setVisibility(View.VISIBLE);
 
         generateQuestion();
 
@@ -54,6 +60,10 @@ public class MainActivity extends AppCompatActivity {
                 playAgainBtn.setVisibility(View.VISIBLE);
                 timerTextView.setText("0s");
                 resultTextView.setText(("Your score: " + Integer.toString(score) + "/" + Integer.toString(numberOfQuestions)));
+                btn0.setVisibility(View.INVISIBLE);
+                btn1.setVisibility(View.INVISIBLE);
+                btn2.setVisibility(View.INVISIBLE);
+                btn3.setVisibility(View.INVISIBLE);
             }
         }.start();
 
@@ -116,8 +126,10 @@ public class MainActivity extends AppCompatActivity {
     public void start(View view){
 
         startButton.setVisibility(View.INVISIBLE);
+        gameRelLay.setVisibility(View.VISIBLE);
 
-
+        //needed a view or an error, any view will do
+        playAgain(findViewById(R.id.playAgainBtn));
     }
 
     @Override
@@ -135,10 +147,6 @@ public class MainActivity extends AppCompatActivity {
         ptsTextView = (TextView) findViewById(R.id.ptsTextView);
         timerTextView = (TextView) findViewById(R.id.timerTextView);
         playAgainBtn = (Button)findViewById(R.id.playAgainBtn);
-
-        //needed a view or an error, any view will do
-        playAgain(findViewById(R.id.playAgainBtn));
-
-
+        gameRelLay = (RelativeLayout)findViewById(R.id.gameRelLay);
     }
 }
