@@ -45,12 +45,15 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:background="@android:color/holo_orange_light"
-            android:padding="10dp"
+            android:paddingBottom="6dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
             android:text="0/0"
             android:textSize="25sp" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/sumTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignBaseline="@+id/timerTextView"
@@ -62,16 +65,15 @@
             android:textSize="25sp" />
 
         <GridLayout
-            android:layout_width="176dp"
-            android:layout_height="410dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentStart="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignEnd="@+id/ptsTextView"
+            android:layout_alignRight="@+id/ptsTextView"
             android:layout_below="@+id/ptsTextView"
+            android:layout_marginTop="20dp"
             tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="93dp">
+            tools:layout_editor_absoluteY="93dp"
+            android:id="@+id/gridLayout">
 
             <Button
                 android:id="@+id/button2"
@@ -129,6 +131,16 @@
                 android:text="6"
                 android:textSize="65sp" />
         </GridLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/gridLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="83dp"
+            android:text="Correct!"
+            android:textSize="50sp" />
 
     </RelativeLayout>
 
