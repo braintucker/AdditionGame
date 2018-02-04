@@ -15,8 +15,10 @@ public class MainActivity extends AppCompatActivity {
     Button startButton;
     ArrayList<Integer> answers = new ArrayList<Integer>();
     TextView resultTextView;
+    TextView ptsTextView;
     int locationOfCorrectAnswer;
     int score = 0;
+    int numberOfQuestions = 0;
 
 
     public void chooseAnswer(View view) {
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
             resultTextView.setText("Wrong!");
         }
 
+        numberOfQuestions++;
+        ptsTextView.setText(Integer.toString(score) + "/" + Integer.toString(numberOfQuestions));
     }
 
     public void start(View view){
@@ -53,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         Button btn2 = (Button)findViewById(R.id.btn2);
         Button btn3 = (Button)findViewById(R.id.btn3);
         resultTextView = (TextView)findViewById(R.id.resultTextView);
+        ptsTextView = (TextView) findViewById(R.id.ptsTextView);
+
         Random rand = new Random();
 
         int a = rand.nextInt(21);
@@ -64,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
 
         int incorrectAnswer;
 
+        //this is used to display the numbers on the grid randomly, along with one being the correct number
         for (int i =0; i<4; i++){
 
             if (i == locationOfCorrectAnswer) {
