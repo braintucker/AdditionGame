@@ -2,6 +2,7 @@ package com.briantucker.additiongame;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -12,9 +13,22 @@ import java.util.Random;
 public class MainActivity extends AppCompatActivity {
 
     Button startButton;
-    ArrayList<Integer> answers;
+    ArrayList<Integer> answers = new ArrayList<Integer>();
     int locationOfCorrectAnswer;
 
+
+    public void chooseAnswer(View view) {
+
+
+        if(view.getTag().toString().equals(Integer.toString(locationOfCorrectAnswer))) {
+
+            Log.i("correct", "correct answer!");
+        }
+
+
+
+
+    }
 
     public void start(View view){
 
@@ -31,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
         startButton = (Button)findViewById(R.id.startButton);
 
         TextView sumTextView = (TextView)findViewById(R.id.sumTextView);
+        Button btn0 = (Button)findViewById(R.id.btn0);
+        Button btn1 = (Button)findViewById(R.id.btn1);
+        Button btn2 = (Button)findViewById(R.id.btn2);
+        Button btn3 = (Button)findViewById(R.id.btn3);
 
         Random rand = new Random();
 
@@ -54,11 +72,14 @@ public class MainActivity extends AppCompatActivity {
                 while (incorrectAnswer == a + b){
                     incorrectAnswer = rand.nextInt(41);
                 }
-
                 answers.add(incorrectAnswer);
             }
         }
 
+        btn0.setText(Integer.toString(answers.get(0)));
+        btn1.setText(Integer.toString(answers.get(1)));
+        btn2.setText(Integer.toString(answers.get(2)));
+        btn3.setText(Integer.toString(answers.get(3)));
 
     }
 }
